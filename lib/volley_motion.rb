@@ -22,8 +22,9 @@ end
 
 $:.unshift("./volley_motion/")
 require 'volley_motion/request_listener'
+require 'volley_motion/request_queue'
 require 'volley_motion/error_listener'
-require 'volley_motion/array_request'
+require 'volley_motion/json_array_request'
 require 'volley_motion/version'
 
 Motion::Project::App.setup do |app|
@@ -33,5 +34,3 @@ Motion::Project::App.setup do |app|
 
   app.vendor_project jar: File.join(File.dirname(__FILE__), '../vendor/volley/volley-1.0.10.jar')
 end
-
-
