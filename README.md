@@ -1,6 +1,6 @@
 # VolleyMotion
 
-TODO: Write a gem description
+A gem to add the Volley Library to your RubyMotion Android Project.
 
 ## Installation
 
@@ -18,9 +18,19 @@ Or install it yourself as:
 
     $ gem install volley_motion
 
+## Setup
+
+1. Edit the `Rakefile` of your RubyMotion project and add the following require
+   lines:
+
+   ```ruby
+   require 'rubygems'
+   require 'volley_motion'
+   ```
+
 ## Usage
 
-TODO: Write usage instructions here
+
 
 ## Contributing
 
