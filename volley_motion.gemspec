@@ -3,7 +3,8 @@ module ::Motion; module Project; class Config
   def self.variable(*); end
 end; end; end
 
-$:.unshift File.expand_path('../lib', __FILE__)
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'volley_motion/version'
 
 Gem::Specification.new do |spec|
@@ -15,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{A gem to add the Volley Library to your RubyMotion Android Project.}
   spec.homepage      = "https://github.com/TigerWolf/volley_motion"
   spec.license       = "MIT"
-  spec.files       = Dir.glob('lib/**/*.rb') << 'README.md' << 'LICENSE.txt'
+  spec.files         = Dir['Rakefile', '{bin,lib,man,test,spec,vendor}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z`.split("\0")
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
