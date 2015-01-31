@@ -1,6 +1,9 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# This is just so that the source file can be loaded.
+module ::Motion; module Project; class Config
+  def self.variable(*); end
+end; end; end
+
+$:.unshift File.expand_path('../lib', __FILE__)
 require 'volley_motion/version'
 
 Gem::Specification.new do |spec|
@@ -10,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hiddentiger@gmail.com"]
   spec.summary       = %q{Volley Android Library for RubyMotion }
   spec.description   = %q{A gem to add the Volley Library to your RubyMotion Android Project.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/TigerWolf/volley_motion"
   spec.license       = "MIT"
 
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
