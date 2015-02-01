@@ -1,9 +1,16 @@
 module VolleyMotion
   class ErrorListener
 
-    def initialize
-
+    class << self
+      def build
+        ErrorListener.new
+        # error_listener = Com::Android::Volley::Response::ErrorListener.new
+      end
     end
+
+    def initialize
+    end
+
     def onErrorResponse(error)
       if error.toString == "com.android.volley.AuthFailureError"
         p "Authentication error"
