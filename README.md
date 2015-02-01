@@ -18,6 +18,12 @@ Or install it yourself as:
 
     $ gem install volley_motion
 
+Note: There appears to be some issues with the gem and downloading from RubyGems.
+
+If you have any problems, try using:
+
+    $ bundle install --path vendor/bundle
+
 ## Setup
 
 Inside a RubyMotion Android project
