@@ -18,12 +18,6 @@ Or install it yourself as:
 
     $ gem install volley_motion
 
-Note: There appears to be some issues with the gem and downloading from RubyGems.
-
-If you have any problems, try using:
-
-    $ bundle install --path vendor/bundle
-
 ## Setup
 
 Inside a RubyMotion Android project
@@ -43,6 +37,14 @@ Inside a RubyMotion Android project
   ```ruby
   app.permissions = [:internet]
   ```
+
+3. Add this inside the app in your rakefile
+
+  ```ruby
+  app.volley
+  ```
+
+  Adding this will add some files to your project that are required.
 
 ## Usage
 
