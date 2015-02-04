@@ -2,6 +2,8 @@
 
 A gem to add the Volley Library to your RubyMotion Android Project.
 
+> Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster.
+
 ## Installation
 
 Add this line to your application's Gemfile:
