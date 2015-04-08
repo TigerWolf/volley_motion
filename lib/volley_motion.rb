@@ -114,5 +114,5 @@ Motion::Project::App.setup do |app|
     app.files << file
   end
 
-  app.vendor_project jar: File.join(File.dirname(__FILE__), '../vendor/volley/volley-1.0.10.jar')
+  app.vendor_project jar: File.join(File.dirname(__FILE__), '../vendor/volley/volley-1.0.15.jar')
 end
