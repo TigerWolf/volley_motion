@@ -28,13 +28,15 @@ Inside a RubyMotion Android project
 
 `motion create my_project --template=android`
 
-1. Edit the `Rakefile` of your RubyMotion project and add the following require
-   lines:
+1. Ensure your project is using Bundler if you started your project with an old version of RubyMotion:
 
-   ```ruby   
-   require 'rubygems'
-   require 'volley_motion'
-   ```
+  ```ruby
+  begin
+  require 'bundler'
+  Bundler.require
+  rescue LoadError
+  end
+  ```
 
 2. Ensure you have the internet permission in your Rakefile
 
