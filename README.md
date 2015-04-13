@@ -4,6 +4,8 @@ A gem to add the Volley Library to your RubyMotion Android Project.
 
 > Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster.
 
+Currently supports GET, POST of Objects and Arrays as well as Basic Auth. Please submit a github issue if a feature you want to use it not supported, more than happy to look into it.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -29,20 +31,20 @@ Inside a RubyMotion Android project
 1. Edit the `Rakefile` of your RubyMotion project and add the following require
    lines:
 
-   ```ruby
+   ```ruby   
    require 'rubygems'
    require 'volley_motion'
    ```
 
-2. Ensure you have the internet permission in your rake file
+2. Ensure you have the internet permission in your Rakefile
 
-  ```ruby
+  ```
   app.permissions = [:internet]
   ```
 
 3. Add this inside the app in your rakefile
 
-  ```ruby
+  ```
   app.volley
   ```
 
@@ -57,7 +59,7 @@ Inside of your activity create a request like the following example:
     url = "http://example.com/api/list"
     success_listener = VolleyMotion::RequestListener.new(self, List)
     error_listener = VolleyMotion::ErrorListener.new
-    get = VolleyMotion::JsonArrayRequest.build(url, success_listener, error_listener)
+    get = VolleyMotion::JsonArrayRequest.new(url, success_listener, error_listener)
     VolleyMotion::RequestQueue.build(self).add(get)
   end
   ```
@@ -84,6 +86,21 @@ Also add this method to your activity:
   def update_display(lists)
     # do something with your object here like adding to a ListView
   end
+  ```
+
+The Library also supports Basic Authentication, for example:
+
+  ```ruby
+  success_listener = VolleyMotion::RequestListener.new(self, Barcode)
+  error_listener = VolleyMotion::ErrorListener.new(self)
+
+  params = {}
+  params[Java::Lang::String.new("barcode")] = Java::Lang::String.new(@barcode)
+
+  post = VolleyMotion::PostAuthRequest.new(url, params, success_listener, error_listener)
+  post.username = @username
+  post.password = @password
+  VolleyMotion::RequestQueue.build(self).add(get)
   ```
 
 See https://github.com/TigerWolf/volley_example for a working example.

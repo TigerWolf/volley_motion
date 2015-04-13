@@ -9,7 +9,7 @@ module VolleyMotion
 
     def onResponse(json)
       responder = @responder.new(json)
-      @activity.update_display(responder)
+      responder.on_response(@activity)
     end
 
   end
