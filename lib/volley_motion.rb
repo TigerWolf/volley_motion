@@ -70,7 +70,7 @@ end
 EOF
 
       error_listener_file = './app/volley_listeners/error_listener.rb'
-      if !File.exist?(error_listener_file) or File.read(error_listener_file) != error_listener
+      if false && !File.exist?(error_listener_file) or File.read(error_listener_file) != error_listener
         File.open(error_listener_file, 'w') { |io| io.write(error_listener) }
         files_created = true
       end
@@ -107,14 +107,6 @@ unless defined?(Motion::Project::Config)
 end
 
 $:.unshift("./volley_motion/")
-# require 'volley_motion/request_listener'
-# require 'volley_motion/request_queue'
-# require 'volley_motion/error_listener'
-# require 'volley_motion/json_array_request'
-# require 'volley_motion/json_array_auth_request'
-# require 'volley_motion/json_object_request'
-# require 'volley_motion/post_auth_request'
-# require 'volley_motion/post_request'
 require 'volley_motion/version'
 
 Motion::Project::App.setup do |app|
